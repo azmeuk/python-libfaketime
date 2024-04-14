@@ -163,6 +163,8 @@ Contributing and testing
 Contributions are welcome! You should compile libfaketime before running tests:
 
 ```bash
+git submodule init --update
+git apply --directory libfaketime/vendor/libfaketime libfaketime/vendor/libfaketime.patch
 make -C libfaketime/vendor/libfaketime
 ```
 
