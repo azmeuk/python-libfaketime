@@ -83,6 +83,18 @@ class TestFaketime:
 
         self._assert_time_not_faked()
 
+    def test_nested_fake_time_restores_format(self):
+        """Leaving a nested context restores FAKETIME_FMT, and not FAKETIME."""
+        with fake_time("2000-01-01 10:00:05"):
+            outer_fmt = os.environ["FAKETIME_FMT"]
+
+            with fake_time("2001-01-01 10:00:05"):
+                pass
+
+            assert os.environ["FAKETIME_FMT"] == outer_fmt
+
+        assert "FAKETIME_FMT" not in os.environ
+
     def test_freeze_time_alias(self):
         with freeze_time("2000-01-01 10:00:05"):
             assert datetime.datetime(2000, 1, 1, 10, 0, 5) == datetime.datetime.now()
