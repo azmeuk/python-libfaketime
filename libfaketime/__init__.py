@@ -237,7 +237,7 @@ class fake_time:
                     del os.environ["FAKETIME"]
 
             if self._prev_fmt is not None:
-                os.environ["FAKETIME_FMT"] = self._prev_spec
+                os.environ["FAKETIME_FMT"] = self._prev_fmt
             else:
                 del os.environ["FAKETIME_FMT"]
 
