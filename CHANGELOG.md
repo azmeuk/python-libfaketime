@@ -3,6 +3,12 @@ Changelog
 
 [Semantic versioning](http://semver.org/) is used.
 
+3.0.1
+-----
+released 2026-08-19
+
+- fix format restoration from nested contexts: [#88](https://github.com/simon-weber/python-libfaketime/pull/88)
+
 3.0.0
 -----
 released 2025-01-20
